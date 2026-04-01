@@ -1,0 +1,1129 @@
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reach Your Financial Goals Faster | FinTrack Calculators</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gray: {
+                            50: '#f9fafb',
+                            100: '#f3f4f6',
+                            200: '#e5e7eb',
+                            300: '#d1d5db',
+                            400: '#9ca3af',
+                            500: '#6b7280',
+                            600: '#4b5563',
+                            700: '#374151',
+                            800: '#1f2937',
+                            900: '#111827',
+                        },
+                        indigo: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        },
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            600: '#059669',
+                            700: '#047857',
+                            900: '#064e3b',
+                        },
+                        amber: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            600: '#d97706',
+                            700: '#b45309',
+                            900: '#78350f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        
+        @keyframes slideFadeIn {
+            0% { opacity: 0; transform: translateY(0.5rem); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .insight-card {
+            animation: slideFadeIn 0.4s ease-out forwards;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased selection:bg-indigo-100 selection:text-indigo-900 min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="border-b border-gray-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <button onclick="switchView('home')" class="flex items-center gap-2 focus:outline-none group">
+                <div class="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center shadow-sm group-hover:bg-gray-800 transition-colors">
+                    <iconify-icon icon="solar:chart-square-linear" class="text-white text-lg" stroke-width="1.5"></iconify-icon>
+                </div>
+                <span class="uppercase text-lg font-semibold text-gray-900 tracking-tighter">F I N T R A C K</span>
+            </button>
+            <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-500">
+                <button onclick="switchView('retire')" class="hover:text-gray-900 transition-colors focus:outline-none">Early Retirement</button>
+                <button onclick="switchView('mil')" class="hover:text-gray-900 transition-colors focus:outline-none">Millionaire Goal</button>
+                <button onclick="switchView('100k')" class="hover:text-gray-900 transition-colors focus:outline-none">First $100k</button>
+            </div>
+            <div class="flex lg:hidden items-center">
+                <button onclick="switchView('home')" class="text-sm font-medium text-indigo-600 hover:text-indigo-700">All Calculators</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow relative">
+        
+        <!-- MAIN HOMEPAGE VIEW -->
+        <div id="view-home" class="block">
+            <!-- Hero Section -->
+            <section class="relative pt-24 pb-16 overflow-hidden">
+                <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-50 via-white to-gray-50"></div>
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 ring-1 ring-inset ring-indigo-200 text-xs font-medium text-indigo-700 mb-8">
+                        <iconify-icon icon="solar:stars-linear" stroke-width="1.5"></iconify-icon>
+                        Free Goal Planning Tools
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900 mb-6">
+                        Reach Your Financial Goals <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-500">Faster</span>
+                    </h1>
+                    <p class="text-lg text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+                        Calculate exactly how long it will take to hit your target — and discover the optimal changes to get there sooner. No guesswork, just clear math.
+                    </p>
+                    <button onclick="document.getElementById('home-calculator').scrollIntoView({behavior: 'smooth'})" class="inline-flex items-center gap-2 justify-center px-6 py-3 border border-transparent text-sm font-medium rounded-full text-white bg-gray-900 hover:bg-gray-800 shadow-sm transition-all focus:outline-none">
+                        Start Calculating
+                        <iconify-icon icon="solar:arrow-right-linear" class="text-base" stroke-width="1.5"></iconify-icon>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Main Calculator Section -->
+            <section id="home-calculator" class="pt-8 pb-12 bg-gray-50">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-white rounded-3xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden flex flex-col lg:flex-row border border-gray-100">
+                        <!-- Left: Inputs -->
+                        <div class="p-8 sm:p-10 lg:w-5/12 bg-white flex flex-col">
+                            <div class="mb-8">
+                                <h2 class="text-xl font-semibold tracking-tight text-gray-900">Your Numbers</h2>
+                                <p class="text-sm text-gray-500 font-medium mt-1">Adjust the inputs to see your timeline update instantly.</p>
+                            </div>
+                            <form class="space-y-6 flex-grow" onsubmit="event.preventDefault();">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Target Goal</label>
+                                    <div class="relative">
+                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><iconify-icon icon="solar:dollar-linear" class="text-gray-400 text-lg" stroke-width="1.5"></iconify-icon></div>
+                                        <input type="number" id="home-target-amount" value="250000" class="block w-full rounded-xl border-0 py-3 pl-10 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base font-medium transition-shadow">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Current Balance</label>
+                                    <div class="relative">
+                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><iconify-icon icon="solar:wallet-money-linear" class="text-gray-400 text-lg" stroke-width="1.5"></iconify-icon></div>
+                                        <input type="number" id="home-current-savings" value="25000" class="block w-full rounded-xl border-0 py-3 pl-10 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base font-medium transition-shadow">
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Monthly Additions</label>
+                                        <div class="relative">
+                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><span class="text-gray-400 text-sm font-medium">+</span></div>
+                                            <input type="number" id="home-monthly-contrib" value="800" class="block w-full rounded-xl border-0 py-3 pl-8 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm font-medium transition-shadow">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Est. Return Rate</label>
+                                        <div class="relative">
+                                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"><iconify-icon icon="solar:percentage-linear" class="text-gray-400 text-lg" stroke-width="1.5"></iconify-icon></div>
+                                            <input type="number" id="home-return-rate" value="7.5" step="0.1" class="block w-full rounded-xl border-0 py-3 pl-4 pr-10 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm font-medium transition-shadow">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Right: Results & Insights -->
+                        <div class="p-8 sm:p-10 lg:w-7/12 bg-gray-50/50 border-t lg:border-t-0 lg:border-l border-gray-100 flex flex-col relative">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gray-200">
+                                <div id="home-progress-bar" class="h-full bg-indigo-500 transition-all duration-500 ease-out" style="width: 10%;"></div>
+                            </div>
+                            <div class="mb-8">
+                                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Projection Summary</h3>
+                                <div class="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-6">
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-500 mb-1">Time to reach goal</p>
+                                        <div class="flex items-baseline gap-2">
+                                            <span id="home-result-years" class="text-5xl font-semibold tracking-tight text-gray-900">0.0</span>
+                                            <span class="text-lg text-gray-500 font-medium mb-1">years</span>
+                                        </div>
+                                        <p class="text-sm font-medium text-gray-500 mt-2">Target reached in <span id="home-target-year-text" class="text-gray-900 font-semibold">--</span></p>
+                                    </div>
+                                    <div class="hidden sm:block w-px h-16 bg-gray-200 mb-2"></div>
+                                    <div class="grid grid-cols-2 gap-6 sm:pb-2 mt-4 sm:mt-0">
+                                        <div>
+                                            <p class="text-xs font-medium text-gray-500 mb-1">Total Principal</p>
+                                            <p id="home-result-contributions" class="text-xl font-semibold text-gray-900 tracking-tight">$--</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-medium text-gray-500 mb-1">Total Growth</p>
+                                            <p id="home-result-growth" class="text-xl font-semibold text-emerald-600 tracking-tight">$--</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-grow flex flex-col">
+                                <h3 class="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2 border-t border-gray-200/60 pt-6">
+                                    <iconify-icon icon="solar:lightbulb-bolt-linear" class="text-amber-500 text-lg" stroke-width="1.5"></iconify-icon>
+                                    Smart Insights
+                                </h3>
+                                <div id="home-smart-insights-container" class="space-y-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Secondary CTA -->
+                    <div class="mt-8 text-center">
+                        <button onclick="openModal()" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 text-sm font-medium rounded-full text-gray-700 hover:text-gray-900 hover:bg-gray-50 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-gray-200">
+                            <iconify-icon icon="solar:calendar-date-linear" class="text-gray-400" stroke-width="1.5"></iconify-icon>
+                            View Amortization Schedule
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ad Placement Placeholder -->
+            <section class="py-4 bg-gray-50">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="w-full h-24 bg-gray-100/50 border border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center transition-colors hover:bg-gray-100">
+                        <span class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">Advertisement Space</span>
+                        <span class="text-xs font-medium text-gray-400">Support our free tools</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Explore SEO Calculators Section -->
+            <section class="py-20 bg-white border-t border-gray-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-16">
+                        <h2 class="text-3xl font-semibold tracking-tight text-gray-900">Explore More Financial Goal Calculators</h2>
+                        <p class="mt-4 text-base font-medium text-gray-500">Dive deeper into specific financial milestones with our dedicated planning tools tailored to your unique journey.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Card 1 -->
+                        <button onclick="switchView('retire')" class="text-left p-8 rounded-3xl bg-gray-50 hover:bg-indigo-50/50 border border-gray-100 hover:border-indigo-100 transition-all group focus:outline-none">
+                            <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                                <iconify-icon icon="solar:bed-linear" class="text-indigo-600 text-2xl" stroke-width="1.5"></iconify-icon>
+                            </div>
+                            <h3 class="text-xl font-semibold tracking-tight text-gray-900 mb-3 group-hover:text-indigo-900 transition-colors">Early Retirement Calculator</h3>
+                            <p class="text-sm font-medium text-gray-500 leading-relaxed mb-6">Estimate how many years it could take to retire based on your current savings, monthly contributions, and expected returns.</p>
+                            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600">Calculate now <iconify-icon icon="solar:arrow-right-linear" stroke-width="2"></iconify-icon></span>
+                        </button>
+                        <!-- Card 2 -->
+                        <button onclick="switchView('mil')" class="text-left p-8 rounded-3xl bg-gray-50 hover:bg-indigo-50/50 border border-gray-100 hover:border-indigo-100 transition-all group focus:outline-none">
+                            <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                                <iconify-icon icon="solar:crown-star-linear" class="text-amber-500 text-2xl" stroke-width="1.5"></iconify-icon>
+                            </div>
+                            <h3 class="text-xl font-semibold tracking-tight text-gray-900 mb-3 group-hover:text-indigo-900 transition-colors">Millionaire Calculator</h3>
+                            <p class="text-sm font-medium text-gray-500 leading-relaxed mb-6">See how long it could take to build a net worth of $1 million using steady investing and compounding growth.</p>
+                            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600">Calculate now <iconify-icon icon="solar:arrow-right-linear" stroke-width="2"></iconify-icon></span>
+                        </button>
+                        <!-- Card 3 -->
+                        <button onclick="switchView('100k')" class="text-left p-8 rounded-3xl bg-gray-50 hover:bg-indigo-50/50 border border-gray-100 hover:border-indigo-100 transition-all group focus:outline-none">
+                            <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                                <iconify-icon icon="solar:flag-linear" class="text-emerald-600 text-2xl" stroke-width="1.5"></iconify-icon>
+                            </div>
+                            <h3 class="text-xl font-semibold tracking-tight text-gray-900 mb-3 group-hover:text-indigo-900 transition-colors">Reach $100k Calculator</h3>
+                            <p class="text-sm font-medium text-gray-500 leading-relaxed mb-6">Find out how long it could take to reach your first $100,000 and what changes can help you get there faster.</p>
+                            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600">Calculate now <iconify-icon icon="solar:arrow-right-linear" stroke-width="2"></iconify-icon></span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reviews / Testimonials -->
+            <section class="py-20 bg-gray-50 border-t border-gray-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-16">
+                        <h2 class="text-3xl font-semibold tracking-tight text-gray-900">Loved by Financial Planners</h2>
+                        <p class="mt-4 text-base font-medium text-gray-500">See how FinTrack is helping people hit their financial milestones clearly and confidently.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Review 1 -->
+                        <div class="bg-white p-8 rounded-3xl shadow-sm ring-1 ring-gray-900/5 border border-gray-100">
+                            <div class="flex gap-1 mb-4">
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                            </div>
+                            <p class="text-sm text-gray-700 font-medium mb-6 leading-relaxed">"This calculator completely changed how I view my monthly savings. Seeing the precise amortization schedule made the compound math finally click for me."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-700 font-semibold text-sm">SJ</div>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-900">Sarah Jenkins</p>
+                                    <p class="text-xs font-medium text-gray-500">Planning for $100k</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 2 -->
+                        <div class="bg-white p-8 rounded-3xl shadow-sm ring-1 ring-gray-900/5 border border-gray-100">
+                            <div class="flex gap-1 mb-4">
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                            </div>
+                            <p class="text-sm text-gray-700 font-medium mb-6 leading-relaxed">"The Smart Insights feature is genius. It told me exactly how much extra I needed to contribute per month to shave 5 entire years off my early retirement goal."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700 font-semibold text-sm">MT</div>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-900">Marcus Thompson</p>
+                                    <p class="text-xs font-medium text-gray-500">FIRE Enthusiast</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 3 -->
+                        <div class="bg-white p-8 rounded-3xl shadow-sm ring-1 ring-gray-900/5 border border-gray-100">
+                            <div class="flex gap-1 mb-4">
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-amber-400 text-lg"></iconify-icon>
+                            </div>
+                            <p class="text-sm text-gray-700 font-medium mb-6 leading-relaxed">"No fluff, no confusing financial jargon. Just clean inputs and instant visual feedback. By far the best milestone calculator I've bookmarked."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-700 font-semibold text-sm">EL</div>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-900">Elena Rostova</p>
+                                    <p class="text-xs font-medium text-gray-500">Retail Investor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQs -->
+            <section class="py-20 bg-white border-t border-gray-100">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl font-semibold tracking-tight text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+                    <div class="space-y-4">
+                        <details class="group bg-gray-50 rounded-2xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden border border-gray-100">
+                            <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-medium">
+                                <h3 class="text-base font-semibold tracking-tight">How accurate are the calculator projections?</h3>
+                                <iconify-icon icon="solar:alt-arrow-down-linear" class="group-open:rotate-180 transition-transform text-xl text-gray-400"></iconify-icon>
+                            </summary>
+                            <div class="px-6 pb-6 pt-0 text-sm font-medium text-gray-500 leading-relaxed border-t border-gray-200 mt-2 pt-4">Our calculations use standard mathematical formulas for compound interest. However, real-world returns fluctuate significantly. These projections assume a steady, constant return rate and are strictly for educational and planning purposes, not guaranteed financial advice.</div>
+                        </details>
+                        <details class="group bg-gray-50 rounded-2xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden border border-gray-100">
+                            <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-medium">
+                                <h3 class="text-base font-semibold tracking-tight">What return rate should I enter?</h3>
+                                <iconify-icon icon="solar:alt-arrow-down-linear" class="group-open:rotate-180 transition-transform text-xl text-gray-400"></iconify-icon>
+                            </summary>
+                            <div class="px-6 pb-6 pt-0 text-sm font-medium text-gray-500 leading-relaxed border-t border-gray-200 mt-2 pt-4">Historically, the U.S. stock market has returned an average of 7-10% annually before inflation. Many conservative planners use 6% or 7% to account for inflation (often called the "real return rate"), ensuring your future target maintains today's purchasing power.</div>
+                        </details>
+                        <details class="group bg-gray-50 rounded-2xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden border border-gray-100">
+                            <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-medium">
+                                <h3 class="text-base font-semibold tracking-tight">Does this account for taxes?</h3>
+                                <iconify-icon icon="solar:alt-arrow-down-linear" class="group-open:rotate-180 transition-transform text-xl text-gray-400"></iconify-icon>
+                            </summary>
+                            <div class="px-6 pb-6 pt-0 text-sm font-medium text-gray-500 leading-relaxed border-t border-gray-200 mt-2 pt-4">No. The calculator computes raw, pre-tax compound growth. Depending on whether you use tax-advantaged accounts (like a Roth IRA or 401k) or standard brokerage accounts, your actual take-home amounts upon withdrawal will vary.</div>
+                        </details>
+                        <details class="group bg-gray-50 rounded-2xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden border border-gray-100">
+                            <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-medium">
+                                <h3 class="text-base font-semibold tracking-tight">Do you save my financial data?</h3>
+                                <iconify-icon icon="solar:alt-arrow-down-linear" class="group-open:rotate-180 transition-transform text-xl text-gray-400"></iconify-icon>
+                            </summary>
+                            <div class="px-6 pb-6 pt-0 text-sm font-medium text-gray-500 leading-relaxed border-t border-gray-200 mt-2 pt-4">Absolutely not. FinTrack runs entirely in your local browser. We do not transmit, save, or store any of the personal financial inputs you enter into the calculators.</div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Us -->
+            <section class="py-20 bg-gray-50 border-t border-gray-100" id="contact">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-white rounded-3xl shadow-sm ring-1 ring-gray-900/5 border border-gray-100 p-8 sm:p-10">
+                        <div class="mb-8">
+                            <h2 class="text-2xl font-semibold tracking-tight text-gray-900 mb-2">Contact Us</h2>
+                            <p class="text-sm text-gray-500 font-medium">Have a feature request, bug report, or just want to share your progress? Drop us a line.</p>
+                        </div>
+                        <form class="space-y-5" onsubmit="event.preventDefault(); alert('Thank you! Your message has been simulated.');">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">First Name</label>
+                                    <input type="text" class="block w-full rounded-xl border-0 py-3 px-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm font-medium transition-shadow" placeholder="Jane" required="">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+                                    <input type="email" class="block w-full rounded-xl border-0 py-3 px-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm font-medium transition-shadow" placeholder="jane@example.com" required="">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Message</label>
+                                <textarea rows="4" class="block w-full rounded-xl border-0 py-3 px-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm font-medium transition-shadow" placeholder="How can we help?" required=""></textarea>
+                            </div>
+                            <button type="submit" class="w-full inline-flex justify-center items-center gap-2 px-6 py-3.5 border border-transparent text-sm font-medium rounded-xl text-white bg-gray-900 hover:bg-gray-800 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2">
+                                Send Message
+                                <iconify-icon icon="solar:plain-linear" class="text-lg"></iconify-icon>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Privacy Policy -->
+            <section class="py-20 bg-white border-t border-gray-100" id="privacy">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-2xl font-semibold tracking-tight text-gray-900 mb-6">Privacy Policy &amp; Legal Information</h2>
+                    <div class="text-sm font-medium text-gray-500 space-y-5 leading-relaxed bg-gray-50/50 p-6 sm:p-8 rounded-2xl ring-1 ring-gray-100">
+                        <p><strong class="font-semibold text-gray-900">1. Data Collection &amp; Processing:</strong> FinTrack operates purely as a client-side application. All calculations and logic are executed locally inside your web browser. We do not store, track, database, or transmit your financial inputs (such as current savings, target amounts, or contribution rates) to any external servers.</p>
+                        <p><strong class="font-semibold text-gray-900">2. Analytics &amp; Tracking:</strong> We may use basic, anonymized analytics (such as page views) to understand how our website is used and to improve user experience. This tracking does not capture or associate with any sensitive personal or financial data you enter into the calculators.</p>
+                        <p><strong class="font-semibold text-gray-900">3. Information Security:</strong> If you choose to contact us via the provided forms, we will collect your name and email address strictly for the purpose of responding to your inquiry. We do not sell, rent, or share this contact information with third-party advertisers.</p>
+                        <p><strong class="font-semibold text-gray-900">4. Disclaimer of Liability:</strong> FinTrack provides these calculators for educational and informational purposes only. The information generated does not constitute financial, investment, tax, or legal advice. Real-world market conditions differ from these mathematical projections. We recommend consulting a certified financial professional before making significant financial decisions.</p>
+                        <p><strong class="font-semibold text-gray-900">5. Updates to Policy:</strong> We reserve the right to modify this privacy policy at any time without prior notice. Any significant changes will be reflected directly in this section of the website.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- SEO PAGE 1: EARLY RETIREMENT -->
+        <div id="view-retire" class="hidden">
+            <section class="pt-16 pb-12 bg-white text-center px-4">
+                <div class="max-w-3xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 ring-1 ring-inset ring-indigo-200 text-xs font-medium text-indigo-700 mb-6">
+                        <iconify-icon icon="solar:bed-linear" stroke-width="1.5"></iconify-icon> Goal Planning Tool
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-gray-900 mb-6">Early Retirement Calculator — How Soon Can You Retire?</h1>
+                    <div class="text-base text-gray-500 leading-relaxed font-medium space-y-4 max-w-2xl mx-auto">
+                        <p>Planning for an early retirement means understanding the relationship between your current savings, your ongoing investments, and the power of compound growth over time.</p>
+                        <p>Consistent, long-term investing is generally one of the most effective ways to build a portfolio large enough to sustain your lifestyle. Use this free calculator to estimate how many years it could take to hit your target retirement number.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Retire Calculator -->
+            <section class="pb-12 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- Calculator UI Copied and prefixed with retire- -->
+                    <div class="bg-white rounded-3xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden flex flex-col lg:flex-row border border-gray-100">
+                        <div class="p-8 sm:p-10 lg:w-5/12 bg-white flex flex-col">
+                            <div class="mb-8">
+                                <h2 class="text-xl font-semibold tracking-tight text-gray-900">Retirement Numbers</h2>
+                                <p class="text-sm text-gray-500 font-medium mt-1">Adjust the inputs to estimate your FIRE timeline.</p>
+                            </div>
+                            <form class="space-y-6 flex-grow" onsubmit="event.preventDefault();">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Target Retirement Portfolio</label>
+                                    <div class="relative">
+                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><iconify-icon icon="solar:dollar-linear" class="text-gray-400 text-lg"></iconify-icon></div>
+                                        <input type="number" id="retire-target-amount" value="1500000" class="block w-full rounded-xl border-0 py-3 pl-10 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base font-medium transition-shadow">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Current Portfolio Balance</label>
+                                    <div class="relative">
+                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><iconify-icon icon="solar:wallet-money-linear" class="text-gray-400 text-lg"></iconify-icon></div>
+                                        <input type="number" id="retire-current-savings" value="50000" class="block w-full rounded-xl border-0 py-3 pl-10 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base font-medium transition-shadow">
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Monthly Investment</label>
+                                        <div class="relative">
+                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><span class="text-gray-400 text-sm font-medium">+</span></div>
+                                            <input type="number" id="retire-monthly-contrib" value="1500" class="block w-full rounded-xl border-0 py-3 pl-8 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm font-medium transition-shadow">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Est. Return Rate</label>
+                                        <div class="relative">
+                                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"><iconify-icon icon="solar:percentage-linear" class="text-gray-400 text-lg"></iconify-icon></div>
+                                            <input type="number" id="retire-return-rate" value="7.5" step="0.1" class="block w-full rounded-xl border-0 py-3 pl-4 pr-10 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm font-medium transition-shadow">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="p-8 sm:p-10 lg:w-7/12 bg-gray-50/50 border-t lg:border-t-0 lg:border-l border-gray-100 flex flex-col relative">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gray-200"><div id="retire-progress-bar" class="h-full bg-indigo-500 transition-all duration-500 ease-out" style="width: 10%;"></div></div>
+                            <div class="mb-8">
+                                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Retirement Timeline</h3>
+                                <div class="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-6">
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-500 mb-1">Time to reach target</p>
+                                        <div class="flex items-baseline gap-2">
+                                            <span id="retire-result-years" class="text-5xl font-semibold tracking-tight text-gray-900">0.0</span>
+                                            <span class="text-lg text-gray-500 font-medium mb-1">years</span>
+                                        </div>
+                                        <p class="text-sm font-medium text-gray-500 mt-2">Target reached in <span id="retire-target-year-text" class="text-gray-900 font-semibold">--</span></p>
+                                    </div>
+                                    <div class="hidden sm:block w-px h-16 bg-gray-200 mb-2"></div>
+                                    <div class="grid grid-cols-2 gap-6 sm:pb-2 mt-4 sm:mt-0">
+                                        <div>
+                                            <p class="text-xs font-medium text-gray-500 mb-1">Total Principal</p>
+                                            <p id="retire-result-contributions" class="text-xl font-semibold text-gray-900 tracking-tight">$--</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-medium text-gray-500 mb-1">Total Growth</p>
+                                            <p id="retire-result-growth" class="text-xl font-semibold text-emerald-600 tracking-tight">$--</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-grow flex flex-col">
+                                <h3 class="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2 border-t border-gray-200/60 pt-6">
+                                    <iconify-icon icon="solar:lightbulb-bolt-linear" class="text-amber-500 text-lg"></iconify-icon> Smart Insights
+                                </h3>
+                                <div id="retire-smart-insights-container" class="space-y-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button onclick="openModal()" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 text-sm font-medium rounded-full text-gray-700 hover:text-gray-900 hover:bg-gray-50 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-gray-200">
+                            <iconify-icon icon="solar:calendar-date-linear" class="text-gray-400"></iconify-icon> View Amortization Schedule
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ad Space 1 -->
+            <section class="pb-12"><div class="max-w-4xl mx-auto px-4"><div class="w-full h-32 bg-gray-50 border border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center"><span class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Sponsored Placement</span></div></div></section>
+
+            <!-- Explanation & Example -->
+            <section class="py-12 bg-white">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-2xl font-semibold tracking-tight text-gray-900 mb-6">Building Wealth for Early Retirement</h2>
+                    <div class="space-y-4 text-base font-medium text-gray-600 leading-relaxed mb-12">
+                        <p>Retiring early (often referred to as the FIRE movement — Financial Independence, Retire Early) requires a shift in how you view savings. Rather than just setting money aside, it requires consistent, long-term investing into assets that grow over time.</p>
+                        <p>The math behind early retirement relies heavily on <strong>compound growth</strong>. When your money is invested, it generates returns. Over the years, those returns begin to generate their own returns, creating a snowball effect. This is why investing early and consistently is far more powerful than trying to perfectly time the market.</p>
+                    </div>
+
+                    <div class="bg-indigo-50 rounded-2xl p-8 ring-1 ring-inset ring-indigo-100/50 mb-12">
+                        <h3 class="text-lg font-semibold tracking-tight text-indigo-900 mb-3 flex items-center gap-2">
+                            <iconify-icon icon="solar:chart-square-linear" class="text-indigo-600"></iconify-icon> Realistic Scenario
+                        </h3>
+                        <p class="text-sm font-medium text-indigo-800 leading-relaxed">
+                            Imagine you want to reach a $1,500,000 portfolio to sustain your early retirement. If you start with a base of $50,000 and consistently invest $1,500 every single month, assuming a conservative 7% annual return, it would take you roughly <strong>23.5 years</strong> to reach your goal. What's incredible is that over $1 million of that final balance will be generated purely from interest, not your own pocket.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SEO PAGE 2: MILLIONAIRE -->
+        <div id="view-mil" class="hidden">
+            <section class="pt-16 pb-12 bg-white text-center px-4">
+                <div class="max-w-3xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 ring-1 ring-inset ring-amber-200 text-xs font-medium text-amber-700 mb-6">
+                        <iconify-icon icon="solar:crown-star-linear" stroke-width="1.5"></iconify-icon> Free Calculator
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-gray-900 mb-6">Millionaire Calculator — How Long Until You're Worth $1M?</h1>
+                    <div class="text-base text-gray-500 leading-relaxed font-medium space-y-4 max-w-2xl mx-auto">
+                        <p>Reaching a $1 million net worth is a major financial milestone. While it sounds daunting, history shows that steady investing and compound interest are the most reliable paths to getting there.</p>
+                        <p>Find out exactly how long it could take to join the two-comma club based on your current financial habits.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="pb-12 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-white rounded-3xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden flex flex-col lg:flex-row border border-gray-100">
+                        <div class="p-8 sm:p-10 lg:w-5/12 bg-white flex flex-col">
+                            <div class="mb-8">
+                                <h2 class="text-xl font-semibold tracking-tight text-gray-900">Wealth Numbers</h2>
+                                <p class="text-sm text-gray-500 font-medium mt-1">Input your savings to project your path to $1M.</p>
+                            </div>
+                            <form class="space-y-6 flex-grow" onsubmit="event.preventDefault();">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Target Net Worth</label>
+                                    <div class="relative">
+                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><iconify-icon icon="solar:dollar-linear" class="text-gray-400 text-lg"></iconify-icon></div>
+                                        <input type="number" id="mil-target-amount" value="1000000" class="block w-full rounded-xl border-0 py-3 pl-10 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-500 sm:text-base font-medium transition-shadow">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Current Investments</label>
+                                    <div class="relative">
+                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><iconify-icon icon="solar:wallet-money-linear" class="text-gray-400 text-lg"></iconify-icon></div>
+                                        <input type="number" id="mil-current-savings" value="10000" class="block w-full rounded-xl border-0 py-3 pl-10 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-500 sm:text-base font-medium transition-shadow">
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Monthly Additions</label>
+                                        <div class="relative">
+                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><span class="text-gray-400 text-sm font-medium">+</span></div>
+                                            <input type="number" id="mil-monthly-contrib" value="800" class="block w-full rounded-xl border-0 py-3 pl-8 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-500 sm:text-sm font-medium transition-shadow">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Est. Return Rate</label>
+                                        <div class="relative">
+                                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"><iconify-icon icon="solar:percentage-linear" class="text-gray-400 text-lg"></iconify-icon></div>
+                                            <input type="number" id="mil-return-rate" value="7.5" step="0.1" class="block w-full rounded-xl border-0 py-3 pl-4 pr-10 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-500 sm:text-sm font-medium transition-shadow">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="p-8 sm:p-10 lg:w-7/12 bg-gray-50/50 border-t lg:border-t-0 lg:border-l border-gray-100 flex flex-col relative">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gray-200"><div id="mil-progress-bar" class="h-full bg-amber-500 transition-all duration-500 ease-out" style="width: 10%;"></div></div>
+                            <div class="mb-8">
+                                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Milestone Timeline</h3>
+                                <div class="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-6">
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-500 mb-1">Time to reach $1M</p>
+                                        <div class="flex items-baseline gap-2">
+                                            <span id="mil-result-years" class="text-5xl font-semibold tracking-tight text-gray-900">0.0</span>
+                                            <span class="text-lg text-gray-500 font-medium mb-1">years</span>
+                                        </div>
+                                        <p class="text-sm font-medium text-gray-500 mt-2">Target reached in <span id="mil-target-year-text" class="text-gray-900 font-semibold">--</span></p>
+                                    </div>
+                                    <div class="hidden sm:block w-px h-16 bg-gray-200 mb-2"></div>
+                                    <div class="grid grid-cols-2 gap-6 sm:pb-2 mt-4 sm:mt-0">
+                                        <div>
+                                            <p class="text-xs font-medium text-gray-500 mb-1">Total Principal</p>
+                                            <p id="mil-result-contributions" class="text-xl font-semibold text-gray-900 tracking-tight">$--</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-medium text-gray-500 mb-1">Total Growth</p>
+                                            <p id="mil-result-growth" class="text-xl font-semibold text-emerald-600 tracking-tight">$--</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-grow flex flex-col">
+                                <h3 class="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2 border-t border-gray-200/60 pt-6">
+                                    <iconify-icon icon="solar:lightbulb-bolt-linear" class="text-amber-500 text-lg"></iconify-icon> Smart Insights
+                                </h3>
+                                <div id="mil-smart-insights-container" class="space-y-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button onclick="openModal()" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 text-sm font-medium rounded-full text-gray-700 hover:text-gray-900 hover:bg-gray-50 shadow-sm transition-all focus:outline-none">
+                            <iconify-icon icon="solar:calendar-date-linear" class="text-gray-400"></iconify-icon> View Amortization Schedule
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pb-12"><div class="max-w-4xl mx-auto px-4"><div class="w-full h-32 bg-gray-50 border border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center"><span class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Sponsored Space</span></div></div></section>
+
+            <section class="py-12 bg-white border-t border-gray-100">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-2xl font-semibold tracking-tight text-gray-900 mb-6">The Journey to One Million</h2>
+                    <div class="space-y-4 text-base font-medium text-gray-600 leading-relaxed mb-12">
+                        <p>Becoming a millionaire often doesn't happen overnight. It is typically the result of decades of disciplined financial behavior, maintaining a high savings rate, and letting the stock market do the heavy lifting over time.</p>
+                        <p>Consistency matters significantly more than timing the market. By automating your monthly investments, you ensure that you buy into the market during both highs and lows, building a resilient portfolio that accelerates as your balance grows larger.</p>
+                    </div>
+
+                    <div class="bg-amber-50 rounded-2xl p-8 ring-1 ring-inset ring-amber-100/50 mb-12">
+                        <h3 class="text-lg font-semibold tracking-tight text-amber-900 mb-3 flex items-center gap-2">
+                            <iconify-icon icon="solar:target-linear" class="text-amber-600"></iconify-icon> The Millionaire Path
+                        </h3>
+                        <p class="text-sm font-medium text-amber-800 leading-relaxed">
+                            If you start with just $10,000 and invest $800 each month at a 7% average return, you will cross the $1,000,000 mark in about <strong>29 years</strong>. During that time, you only contributed around $288,000 out of pocket—meaning over $700,000 of your wealth was generated entirely by compound interest.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SEO PAGE 3: REACH 100K -->
+        <div id="view-100k" class="hidden">
+            <section class="pt-16 pb-12 bg-white text-center px-4">
+                <div class="max-w-3xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 ring-1 ring-inset ring-emerald-200 text-xs font-medium text-emerald-700 mb-6">
+                        <iconify-icon icon="solar:flag-linear" stroke-width="1.5"></iconify-icon> Milestone Planner
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-gray-900 mb-6">How Long to Reach $100k? — Free Investment Calculator</h1>
+                    <div class="text-base text-gray-500 leading-relaxed font-medium space-y-4 max-w-2xl mx-auto">
+                        <p>The first $100,000 is a notoriously difficult milestone to reach, but it's also the most important. Once you hit this threshold, compound interest starts generating noticeable momentum.</p>
+                        <p>Use this calculator to find out how long it could take to hit your first six figures based on your monthly savings goals.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="pb-12 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-white rounded-3xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden flex flex-col lg:flex-row border border-gray-100">
+                        <div class="p-8 sm:p-10 lg:w-5/12 bg-white flex flex-col">
+                            <div class="mb-8">
+                                <h2 class="text-xl font-semibold tracking-tight text-gray-900">Savings Numbers</h2>
+                                <p class="text-sm text-gray-500 font-medium mt-1">Discover your timeline to six figures.</p>
+                            </div>
+                            <form class="space-y-6 flex-grow" onsubmit="event.preventDefault();">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Target Milestone</label>
+                                    <div class="relative">
+                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><iconify-icon icon="solar:dollar-linear" class="text-gray-400 text-lg"></iconify-icon></div>
+                                        <input type="number" id="100k-target-amount" value="100000" class="block w-full rounded-xl border-0 py-3 pl-10 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-500 sm:text-base font-medium transition-shadow">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Current Balance</label>
+                                    <div class="relative">
+                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><iconify-icon icon="solar:wallet-money-linear" class="text-gray-400 text-lg"></iconify-icon></div>
+                                        <input type="number" id="100k-current-savings" value="5000" class="block w-full rounded-xl border-0 py-3 pl-10 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-500 sm:text-base font-medium transition-shadow">
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Monthly Investment</label>
+                                        <div class="relative">
+                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"><span class="text-gray-400 text-sm font-medium">+</span></div>
+                                            <input type="number" id="100k-monthly-contrib" value="500" class="block w-full rounded-xl border-0 py-3 pl-8 pr-4 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-500 sm:text-sm font-medium transition-shadow">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Est. Return Rate</label>
+                                        <div class="relative">
+                                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"><iconify-icon icon="solar:percentage-linear" class="text-gray-400 text-lg"></iconify-icon></div>
+                                            <input type="number" id="100k-return-rate" value="7.5" step="0.1" class="block w-full rounded-xl border-0 py-3 pl-4 pr-10 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-500 sm:text-sm font-medium transition-shadow">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="p-8 sm:p-10 lg:w-7/12 bg-gray-50/50 border-t lg:border-t-0 lg:border-l border-gray-100 flex flex-col relative">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gray-200"><div id="100k-progress-bar" class="h-full bg-emerald-500 transition-all duration-500 ease-out" style="width: 10%;"></div></div>
+                            <div class="mb-8">
+                                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Projection Summary</h3>
+                                <div class="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-6">
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-500 mb-1">Time to reach $100k</p>
+                                        <div class="flex items-baseline gap-2">
+                                            <span id="100k-result-years" class="text-5xl font-semibold tracking-tight text-gray-900">0.0</span>
+                                            <span class="text-lg text-gray-500 font-medium mb-1">years</span>
+                                        </div>
+                                        <p class="text-sm font-medium text-gray-500 mt-2">Target reached in <span id="100k-target-year-text" class="text-gray-900 font-semibold">--</span></p>
+                                    </div>
+                                    <div class="hidden sm:block w-px h-16 bg-gray-200 mb-2"></div>
+                                    <div class="grid grid-cols-2 gap-6 sm:pb-2 mt-4 sm:mt-0">
+                                        <div>
+                                            <p class="text-xs font-medium text-gray-500 mb-1">Total Principal</p>
+                                            <p id="100k-result-contributions" class="text-xl font-semibold text-gray-900 tracking-tight">$--</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-medium text-gray-500 mb-1">Total Growth</p>
+                                            <p id="100k-result-growth" class="text-xl font-semibold text-emerald-600 tracking-tight">$--</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-grow flex flex-col">
+                                <h3 class="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2 border-t border-gray-200/60 pt-6">
+                                    <iconify-icon icon="solar:lightbulb-bolt-linear" class="text-amber-500 text-lg"></iconify-icon> Smart Insights
+                                </h3>
+                                <div id="100k-smart-insights-container" class="space-y-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button onclick="openModal()" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 text-sm font-medium rounded-full text-gray-700 hover:text-gray-900 hover:bg-gray-50 shadow-sm transition-all focus:outline-none">
+                            <iconify-icon icon="solar:calendar-date-linear" class="text-gray-400"></iconify-icon> View Amortization Schedule
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pb-12"><div class="max-w-4xl mx-auto px-4"><div class="w-full h-32 bg-gray-50 border border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center"><span class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Sponsored Content</span></div></div></section>
+
+            <section class="py-12 bg-white border-t border-gray-100">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-2xl font-semibold tracking-tight text-gray-900 mb-6">Why the First $100k is the Hardest</h2>
+                    <div class="space-y-4 text-base font-medium text-gray-600 leading-relaxed mb-12">
+                        <p>When you start from zero, almost all the growth in your portfolio comes from your own heavy lifting. The interest earned on small amounts is negligible, making the climb feel incredibly slow.</p>
+                        <p>However, once you build up a base of $100,000, compound interest finally starts working alongside you. A 7% return on $100k generates $7,000 in a year—often more than what people can comfortably save manually. Getting past this initial barrier is essential for long-term wealth.</p>
+                    </div>
+
+                    <div class="bg-emerald-50 rounded-2xl p-8 ring-1 ring-inset ring-emerald-100/50 mb-12">
+                        <h3 class="text-lg font-semibold tracking-tight text-emerald-900 mb-3 flex items-center gap-2">
+                            <iconify-icon icon="solar:graph-up-linear" class="text-emerald-600"></iconify-icon> The Snowball Effect
+                        </h3>
+                        <p class="text-sm font-medium text-emerald-800 leading-relaxed">
+                            Starting with $5,000 and investing $500 monthly at 7% return, it takes about <strong>10.5 years</strong> to hit $100k. But watch what happens next: getting from $100k to your <em>second</em> $100k (hitting $200k) with the exact same inputs takes only <strong>6 more years</strong>. That is the power of compounding in action.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Global Bottom Internal Links (Shows up dynamically on SEO views) -->
+        <div id="seo-internal-links" class="hidden py-16 bg-gray-50 border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-semibold tracking-tight text-gray-900 mb-8 text-center">Explore Other Calculators</h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <button onclick="switchView('home')" class="text-left p-6 rounded-2xl bg-white hover:bg-gray-50 border border-gray-100 transition-colors focus:outline-none shadow-sm">
+                        <iconify-icon icon="solar:home-linear" class="text-gray-400 text-xl mb-3 block"></iconify-icon>
+                        <h3 class="text-sm font-semibold tracking-tight text-gray-900 mb-1">Main Calculator Hub</h3>
+                        <p class="text-xs font-medium text-gray-500">Back to the primary tool.</p>
+                    </button>
+                    <button onclick="switchView('retire')" class="text-left p-6 rounded-2xl bg-white hover:bg-gray-50 border border-gray-100 transition-colors focus:outline-none shadow-sm">
+                        <iconify-icon icon="solar:bed-linear" class="text-indigo-500 text-xl mb-3 block"></iconify-icon>
+                        <h3 class="text-sm font-semibold tracking-tight text-gray-900 mb-1">Early Retirement</h3>
+                        <p class="text-xs font-medium text-gray-500">Estimate your FIRE timeline.</p>
+                    </button>
+                    <button onclick="switchView('mil')" class="text-left p-6 rounded-2xl bg-white hover:bg-gray-50 border border-gray-100 transition-colors focus:outline-none shadow-sm">
+                        <iconify-icon icon="solar:crown-star-linear" class="text-amber-500 text-xl mb-3 block"></iconify-icon>
+                        <h3 class="text-sm font-semibold tracking-tight text-gray-900 mb-1">Millionaire Goal</h3>
+                        <p class="text-xs font-medium text-gray-500">Path to your first million.</p>
+                    </button>
+                    <button onclick="switchView('100k')" class="text-left p-6 rounded-2xl bg-white hover:bg-gray-50 border border-gray-100 transition-colors focus:outline-none shadow-sm">
+                        <iconify-icon icon="solar:flag-linear" class="text-emerald-500 text-xl mb-3 block"></iconify-icon>
+                        <h3 class="text-sm font-semibold tracking-tight text-gray-900 mb-1">Reach $100k</h3>
+                        <p class="text-xs font-medium text-gray-500">Hit the crucial milestone.</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Amortization Modal -->
+        <div id="amortization-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div class="fixed inset-0 bg-gray-900/40 backdrop-blur-sm transition-opacity opacity-0 duration-200" id="modal-backdrop" onclick="closeModal()"></div>
+            <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                    <div id="modal-panel" class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl border border-gray-100 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95 duration-200">
+                        <div class="bg-white px-6 py-5 flex justify-between items-center border-b border-gray-100">
+                            <div>
+                                <h3 class="text-lg font-semibold leading-6 text-gray-900 tracking-tight" id="modal-title">Amortization Schedule</h3>
+                                <p class="text-sm font-medium text-gray-500 mt-1">A detailed month-by-month breakdown of your projection.</p>
+                            </div>
+                            <button onclick="closeModal()" class="rounded-full p-1.5 hover:bg-gray-100 transition-colors text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                                <iconify-icon icon="solar:close-circle-linear" class="text-2xl"></iconify-icon>
+                            </button>
+                        </div>
+                        <div class="max-h-[60vh] overflow-y-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50 sticky top-0 z-10 shadow-sm shadow-gray-200/50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-widest">Month</th>
+                                        <th class="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-widest">Start Balance</th>
+                                        <th class="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-widest">Contribution</th>
+                                        <th class="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-widest">Interest</th>
+                                        <th class="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-widest">End Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="amortization-body" class="bg-white divide-y divide-gray-100"></tbody>
+                            </table>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4 sm:flex sm:flex-row-reverse border-t border-gray-100">
+                            <button type="button" onclick="closeModal()" class="inline-flex w-full justify-center rounded-full bg-gray-900 px-6 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-gray-800 sm:ml-3 sm:w-auto transition-all focus:outline-none focus:ring-2 focus:ring-gray-900">Close Schedule</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+                <button onclick="switchView('home')" class="flex items-center gap-2 focus:outline-none">
+                    <div class="w-6 h-6 bg-gray-100 ring-1 ring-gray-200 rounded flex items-center justify-center"><iconify-icon icon="solar:chart-square-linear" class="text-gray-500 text-sm"></iconify-icon></div>
+                    <span class="uppercase text-sm font-semibold text-gray-400 tracking-tighter">F i n t r a c k</span>
+                </button>
+                <div class="flex flex-wrap justify-center gap-6 text-xs font-medium text-gray-500">
+                    <button onclick="switchView('home')" class="hover:text-gray-900 transition-colors focus:outline-none">Home</button>
+                    <button onclick="switchView('retire')" class="hover:text-gray-900 transition-colors focus:outline-none">Retire Early</button>
+                    <button onclick="switchView('mil')" class="hover:text-gray-900 transition-colors focus:outline-none">Millionaire</button>
+                    <button onclick="switchView('100k')" class="hover:text-gray-900 transition-colors focus:outline-none">Reach $100k</button>
+                    <button onclick="switchView('home'); setTimeout(() =&gt; document.getElementById('privacy').scrollIntoView({behavior: 'smooth'}), 100);" class="hover:text-gray-900 transition-colors focus:outline-none">Privacy &amp; Legal</button>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100">
+                <p class="text-xs font-medium text-gray-400 text-center mt-4">© 2023 FinTrack App. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        let activeView = 'home';
+        const calcPrefixes = ['home', 'retire', 'mil', '100k'];
+        const formatCurrency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+        function switchView(viewId) {
+            const views = ['home', 'retire', 'mil', '100k'];
+            views.forEach(id => {
+                const el = document.getElementById('view-' + id);
+                if (el) {
+                    if (id === viewId) {
+                        el.classList.remove('hidden');
+                        el.classList.add('block');
+                    } else {
+                        el.classList.add('hidden');
+                        el.classList.remove('block');
+                    }
+                }
+            });
+
+            const linkSection = document.getElementById('seo-internal-links');
+            if (['retire', 'mil', '100k'].includes(viewId)) {
+                linkSection.classList.remove('hidden');
+            } else {
+                linkSection.classList.add('hidden');
+            }
+
+            activeView = viewId;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            if (calcPrefixes.includes(viewId)) {
+                updateUI(viewId);
+            }
+        }
+
+        function getValues(prefix) {
+            return {
+                target: parseFloat(document.getElementById(`${prefix}-target-amount`)?.value) || 0,
+                current: parseFloat(document.getElementById(`${prefix}-current-savings`)?.value) || 0,
+                monthly: parseFloat(document.getElementById(`${prefix}-monthly-contrib`)?.value) || 0,
+                rate: parseFloat(document.getElementById(`${prefix}-return-rate`)?.value) || 0
+            };
+        }
+
+        function calculateProjection(vals) {
+            let months = 0;
+            let currentAmount = vals.current;
+            let totalContributions = vals.current;
+            let monthlyRate = (vals.rate / 100) / 12;
+            const MAX_MONTHS = 1200;
+
+            if (vals.current >= vals.target) return { months: 0, currentAmount: vals.current, totalContributions: vals.current, totalGrowth: 0 };
+            if (vals.monthly <= 0 && vals.rate <= 0) return { months: -1, currentAmount: vals.current, totalContributions: vals.current, totalGrowth: 0 };
+
+            while (currentAmount < vals.target && months < MAX_MONTHS) {
+                let interestThisMonth = currentAmount * monthlyRate;
+                currentAmount = currentAmount + interestThisMonth + vals.monthly;
+                totalContributions += vals.monthly;
+                months++;
+            }
+
+            return {
+                months: months < MAX_MONTHS ? months : -1,
+                finalAmount: currentAmount,
+                totalContributions: totalContributions,
+                totalGrowth: currentAmount - totalContributions
+            };
+        }
+
+        function calculateRequiredPayment(target, current, rate, months) {
+            const monthlyRate = (rate / 100) / 12;
+            if (monthlyRate === 0) return (target - current) / months;
+            const compoundFactor = Math.pow(1 + monthlyRate, months);
+            return (target - current * compoundFactor) * monthlyRate / (compoundFactor - 1);
+        }
+
+        function generateInsights(vals, result, prefix) {
+            const container = document.getElementById(`${prefix}-smart-insights-container`);
+            if(!container) return;
+            container.innerHTML = '';
+
+            if (vals.target <= 0) return;
+
+            if (result.months === 0) {
+                container.innerHTML = `<div class="p-4 rounded-xl bg-gray-100 ring-1 ring-inset ring-gray-200 flex items-start gap-3 insight-card"><iconify-icon icon="solar:check-circle-linear" class="text-gray-500 text-xl shrink-0 mt-0.5"></iconify-icon><p class="text-sm font-medium text-gray-700 leading-relaxed">You've already reached this target goal!</p></div>`;
+                return;
+            }
+
+            if (result.months === -1) {
+                container.innerHTML = `<div class="p-4 rounded-xl bg-rose-50 ring-1 ring-inset ring-rose-100 flex items-start gap-3 insight-card"><iconify-icon icon="solar:danger-triangle-linear" class="text-rose-500 text-xl shrink-0 mt-0.5"></iconify-icon><p class="text-sm font-medium text-rose-800 leading-relaxed">With these inputs, you won't reach your target. Try increasing contributions.</p></div>`;
+                return;
+            }
+
+            const years = (result.months / 12).toFixed(1);
+            let insightsHTML = '';
+            const growthPercentage = ((result.totalGrowth / result.finalAmount) * 100).toFixed(0);
+            
+            if (growthPercentage > 5) {
+                insightsHTML += `<div class="p-4 rounded-xl bg-indigo-50 ring-1 ring-inset ring-indigo-100/50 flex items-start gap-3 insight-card" style="animation-delay: 0ms;"><iconify-icon icon="solar:pie-chart-2-linear" class="text-indigo-600 text-xl shrink-0 mt-0.5"></iconify-icon><div class="text-sm text-indigo-900 leading-relaxed"><strong class="font-semibold text-indigo-800 block mb-0.5">The Compound Effect</strong><span class="font-medium text-indigo-700/90">By the time you reach your goal, roughly <strong class="font-semibold text-indigo-800">${growthPercentage}%</strong> of your balance will be from interest.</span></div></div>`;
+            }
+
+            const bumpAmount = Math.max(Math.round(vals.monthly * 0.25 / 10) * 10, 100); 
+            const fastVals = { ...vals, monthly: vals.monthly + bumpAmount };
+            const fastResult = calculateProjection(fastVals);
+            
+            if (fastResult.months !== -1 && fastResult.months < result.months) {
+                const fastYears = (fastResult.months / 12).toFixed(1);
+                const yearsSaved = (years - fastYears).toFixed(1);
+                if (yearsSaved >= 0.5) {
+                    insightsHTML += `<div class="p-4 rounded-xl bg-emerald-50 ring-1 ring-inset ring-emerald-100/50 flex items-start gap-3 insight-card" style="animation-delay: 100ms;"><iconify-icon icon="solar:rocket-linear" class="text-emerald-600 text-xl shrink-0 mt-0.5"></iconify-icon><div class="text-sm text-emerald-900 leading-relaxed"><strong class="font-semibold text-emerald-800 block mb-0.5">Faster Track Scenario</strong><span class="font-medium text-emerald-700/90">Increasing contributions by <strong class="font-semibold text-emerald-800">${formatCurrency.format(bumpAmount)}/mo</strong> would cut your timeline down by <strong class="font-semibold text-emerald-800">${yearsSaved} years</strong>.</span></div></div>`;
+                }
+            }
+
+            if (result.months > 24) { 
+                const targetMonthsHalf = Math.max(Math.floor(result.months / 2), 12);
+                const requiredPmt = calculateRequiredPayment(vals.target, vals.current, vals.rate, targetMonthsHalf);
+                if (requiredPmt > vals.monthly && (requiredPmt - vals.monthly) > 50) {
+                    const targetYearsHalf = (targetMonthsHalf / 12).toFixed(1);
+                    insightsHTML += `<div class="p-4 rounded-xl bg-amber-50 ring-1 ring-inset ring-amber-100/50 flex items-start gap-3 insight-card" style="animation-delay: 200ms;"><iconify-icon icon="solar:stopwatch-linear" class="text-amber-600 text-xl shrink-0 mt-0.5"></iconify-icon><div class="text-sm text-amber-900 leading-relaxed"><strong class="font-semibold text-amber-800 block mb-0.5">Aggressive Milestone</strong><span class="font-medium text-amber-700/90">Want to hit this target in half the time (<strong class="font-semibold text-amber-800">${targetYearsHalf} yrs</strong>)? Step up to <strong class="font-semibold text-amber-800">${formatCurrency.format(requiredPmt)}/mo</strong>.</span></div></div>`;
+                }
+            }
+
+            if (insightsHTML === '') {
+                 insightsHTML = `<div class="p-4 rounded-xl bg-gray-50 ring-1 ring-inset ring-gray-200 flex items-start gap-3 insight-card"><iconify-icon icon="solar:info-circle-linear" class="text-gray-500 text-xl shrink-0 mt-0.5"></iconify-icon><p class="text-sm font-medium text-gray-700 leading-relaxed">You're on a steady path. Keep up the consistent contributions.</p></div>`;
+            }
+
+            container.innerHTML = insightsHTML;
+        }
+
+        function updateUI(prefix) {
+            const vals = getValues(prefix);
+            const result = calculateProjection(vals);
+
+            const yearsEl = document.getElementById(`${prefix}-result-years`);
+            const dateEl = document.getElementById(`${prefix}-target-year-text`);
+            const contribEl = document.getElementById(`${prefix}-result-contributions`);
+            const growthEl = document.getElementById(`${prefix}-result-growth`);
+            const progressBar = document.getElementById(`${prefix}-progress-bar`);
+
+            if(!yearsEl) return;
+
+            const progress = vals.target > 0 ? Math.min((vals.current / vals.target) * 100, 100) : 0;
+            progressBar.style.width = `${progress}%`;
+
+            if (vals.current >= vals.target) {
+                yearsEl.textContent = "0.0";
+                dateEl.textContent = "Today";
+                contribEl.textContent = formatCurrency.format(vals.current);
+                growthEl.textContent = "$0";
+                generateInsights(vals, result, prefix);
+                return;
+            }
+
+            if (result.months === -1) {
+                yearsEl.textContent = "Never";
+                dateEl.textContent = "N/A";
+                contribEl.textContent = "--";
+                growthEl.textContent = "--";
+                generateInsights(vals, result, prefix);
+                return;
+            }
+
+            const years = (result.months / 12).toFixed(1);
+            yearsEl.textContent = years;
+            const currentYear = new Date().getFullYear();
+            dateEl.textContent = Math.floor(currentYear + (result.months / 12));
+            contribEl.textContent = formatCurrency.format(result.totalContributions);
+            growthEl.textContent = formatCurrency.format(result.totalGrowth);
+
+            generateInsights(vals, result, prefix);
+        }
+
+        function renderSchedule(prefix) {
+            const vals = getValues(prefix);
+            let currentAmount = vals.current;
+            let monthlyRate = (vals.rate / 100) / 12;
+            const tbody = document.getElementById('amortization-body');
+            let html = '';
+            let month = 1;
+            const MAX_MONTHS = 1200;
+
+            if (currentAmount >= vals.target) {
+                tbody.innerHTML = '<tr><td colspan="5" class="px-6 py-8 text-center text-sm font-medium text-gray-500">You have already reached your target goal!</td></tr>';
+                return;
+            }
+            if (vals.monthly <= 0 && vals.rate <= 0) {
+                 tbody.innerHTML = '<tr><td colspan="5" class="px-6 py-8 text-center text-sm font-medium text-gray-500">Goal unreachable with current inputs.</td></tr>';
+                 return;
+            }
+
+            while (currentAmount < vals.target && month <= MAX_MONTHS) {
+                let startBalance = currentAmount;
+                let interestThisMonth = currentAmount * monthlyRate;
+                currentAmount = currentAmount + interestThisMonth + vals.monthly;
+                
+                html += `<tr class="hover:bg-gray-50 transition-colors"><td class="px-6 py-3.5 whitespace-nowrap text-sm text-gray-900 font-medium">${month}</td><td class="px-6 py-3.5 whitespace-nowrap text-sm font-medium text-gray-500 text-right">${formatCurrency.format(startBalance)}</td><td class="px-6 py-3.5 whitespace-nowrap text-sm font-medium text-gray-500 text-right">+${formatCurrency.format(vals.monthly)}</td><td class="px-6 py-3.5 whitespace-nowrap text-sm font-medium text-emerald-600 text-right">+${formatCurrency.format(interestThisMonth)}</td><td class="px-6 py-3.5 whitespace-nowrap text-sm font-semibold text-gray-900 text-right">${formatCurrency.format(currentAmount)}</td></tr>`;
+                month++;
+            }
+            tbody.innerHTML = html;
+        }
+
+        function openModal() {
+            const prefix = calcPrefixes.includes(activeView) ? activeView : 'home';
+            renderSchedule(prefix);
+            const modal = document.getElementById('amortization-modal');
+            const backdrop = document.getElementById('modal-backdrop');
+            const panel = document.getElementById('modal-panel');
+            
+            modal.classList.remove('hidden');
+            void modal.offsetWidth;
+            backdrop.classList.remove('opacity-0');
+            backdrop.classList.add('opacity-100');
+            panel.classList.remove('opacity-0', 'translate-y-4', 'sm:scale-95');
+            panel.classList.add('opacity-100', 'translate-y-0', 'sm:scale-100');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('amortization-modal');
+            const backdrop = document.getElementById('modal-backdrop');
+            const panel = document.getElementById('modal-panel');
+            
+            backdrop.classList.remove('opacity-100');
+            backdrop.classList.add('opacity-0');
+            panel.classList.remove('opacity-100', 'translate-y-0', 'sm:scale-100');
+            panel.classList.add('opacity-0', 'translate-y-4', 'sm:scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 200);
+        }
+
+        let timeout;
+        calcPrefixes.forEach(prefix => {
+            const inputs = ['target-amount', 'current-savings', 'monthly-contrib', 'return-rate'];
+            inputs.forEach(id => {
+                const el = document.getElementById(`${prefix}-${id}`);
+                if (el) {
+                    el.addEventListener('input', () => {
+                        clearTimeout(timeout);
+                        timeout = setTimeout(() => updateUI(prefix), 150);
+                    });
+                }
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !document.getElementById('amortization-modal').classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            calcPrefixes.forEach(prefix => updateUI(prefix));
+        });
+    </script>
+
+</body></html>
